@@ -1191,10 +1191,6 @@ module ByteArrayBase {
         }
 
     }
-
-    export class ByteArrayBase {
-
-    }
 }
 
 export = ByteArrayBase;
