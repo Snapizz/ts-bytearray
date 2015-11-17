@@ -1,0 +1,28 @@
+{
+  "name": "ts-bytearray",
+  "version": "1.0.0",
+  "description": "JavaScript ByteArray an implementation of ActionScript ByteArray",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Snapizz/ts-bytearray.git"
+  },
+  "keywords": [
+    "js",
+    "javascript",
+    "bytearray",
+    "as3",
+    "as",
+    "actionscript",
+    "flash"
+  ],
+  "author": "Nidin Vinayakan | nidinthb@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Snapizz/ts-bytearray/issues"
+  },
+  "homepage": "https://github.com/Snapizz/ts-bytearray#readme"
+}
