@@ -1,6 +1,6 @@
 {
   "name": "ts-bytearray",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "JavaScript ByteArray an implementation of ActionScript ByteArray",
   "main": "lib/ts-bytearray.js",
   "scripts": {
