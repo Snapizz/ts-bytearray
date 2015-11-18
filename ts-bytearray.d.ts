@@ -1,5 +1,3 @@
-/// <reference path="./node.d.ts" />
-/// <reference path="./uvrun2.d.ts" />
 declare module 'ts-bytearray' {
     class ByteArrayBase {
         private bitsPending;
