@@ -1,3 +1,9 @@
+/// <reference path="../node.d.ts" />
+/// <reference path="../uvrun2.d.ts" />
+
+import {runOnce} from 'uvrun2';
+import zlib = require('zlib');
+
 class ByteArrayBase {
     private bitsPending: number = 0;
     public readBits(bits: number, bitBuffer: number = 0): number {
@@ -941,6 +947,42 @@ class ByteArrayBase {
             throw 'Error #2030: End of file was encountered.';
         }
     }
+    public compress(): void {
+        let finished = false;
+        zlib.deflate(this.toBuffer(), (err, result) => {
+            finished = true;
+            this.fromBuffer(result);
+        });
+        while (!finished) {
+            runOnce();
+        }
+    }
+    public uncompress(): void {
+        let finished = false;
+        zlib.inflate(this.toBuffer(), (err, result) => {
+            finished = true;
+            this.fromBuffer(result);
+        });
+        while (!finished) {
+            runOnce();
+        }
+    }
+    public toBuffer(): Buffer {
+        var buffer = new Buffer(this.buffer.byteLength);
+        var view = new Uint8Array(this.buffer);
+        for (var i = 0; i < buffer.length; ++i) {
+            buffer[i] = view[i];
+        }
+        return buffer;
+    }
+    public fromBuffer(buff: Buffer): void {
+        var ab = new ArrayBuffer(buff.length);
+        var view = new Uint8Array(ab);
+        for (var i = 0; i < buff.length; ++i) {
+            view[i] = buff[i];
+        }
+        this.setBuffer(ab);
+    }
     /**********************/
     /*  PRIVATE METHODS   */
     /**********************/
@@ -1136,7 +1178,7 @@ module ByteArrayBase {
         public high: number;
         public _value: number;
 
-        constructor(low: number, high: number) {
+        constructor(low: number = 0, high: number = 0) {
             this.low = low;
             this.high = high;
         }

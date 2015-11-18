@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/Snapizz/ts-bytearray/issues"
   },
-  "homepage": "https://github.com/Snapizz/ts-bytearray#readme"
+  "homepage": "https://github.com/Snapizz/ts-bytearray#readme",
+  "dependencies": {
+    "uvrun2": "^0.3.0"
+  }
 }
