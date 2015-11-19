@@ -1,3 +1,4 @@
+/// <reference path="./node.d.ts" />
 declare module 'ts-bytearray' {
     class ByteArrayBase {
         private bitsPending;
